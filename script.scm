@@ -22,7 +22,7 @@ pipeline {
 			
 		//Running & deploy on Payara
             	sh "/home/student/JavaTools/payara5.2020.5/bin/asadmin start-domain"
-		sh "/home/student/JavaTools/payara5.2020.5/bin/asadmin deploy --force /var/lib/jenkins/workspace/ISDP/WM/target/WM.war"		 
+		sh "/payara/payara5.2020.5/bin/asadmin deploy --force /var/lib/jenkins/workspace/ISDP/WM/target/WM.war"		 
 }
 
             

@@ -25,7 +25,7 @@ pipeline {
         	sh "/payara/payara5.2020.5/bin/asadmin start-domain"
 		    sh "/payara/payara5.2020.5/bin/asadmin -u admin deploy --force /var/lib/jenkins/workspace/ISDP/WM/target/WM.war"		
             sh 'sleep 5'
-            sh '/usr/local/glassfish4/bin/asadmin stop-domain'
+            sh '/payara/payara5.2020.5/bin/asadmin stop-domain'
 }
 
             

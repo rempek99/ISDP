@@ -23,7 +23,7 @@ pipeline {
              sh "whoami" 
 		//Running & deploy on Payara
         	sh "/payara/payara5.2020.5/bin/asadmin start-domain"
-            sh 'sleep 5000'
+            sh 'sleep 5'
 		    sh "/payara/payara5.2020.5/bin/asadmin -u admin deploy --force /var/lib/jenkins/workspace/ISDP/WM/target/WM.war"		
 
 }

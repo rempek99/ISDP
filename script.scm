@@ -17,11 +17,11 @@ pipeline {
                 // bat "mvn -Dmaven.test.failure.ignore=true clean package"
 
 		//Running JDB
-		/home/student/JavaTools/db-derby-10.14.2.0-bin/bin/ij connect 'jdbc:derby://localhost:1527/WM;create=true;user=WM;password=WM';
+		sh "/home/student/JavaTools/db-derby-10.14.2.0-bin/bin/ij connect 'jdbc:derby://localhost:1527/WM;create=true;user=WM;password=WM';"
 			
 		//Running & deploy on Payara
-            	/home/student/JavaTools/payara5.2020.5/bin/asadmin start-domain
-		/home/student/JavaTools/payara5.2020.5/bin/asadmin deploy --force /var/lib/jenkins/workspace/ISDP/WM/target/WM-1.1.war		 
+            	sh "/home/student/JavaTools/payara5.2020.5/bin/asadmin start-domain"
+		sh "/home/student/JavaTools/payara5.2020.5/bin/asadmin deploy --force /var/lib/jenkins/workspace/ISDP/WM/target/WM-1.1.war"		 
 }
 
             

@@ -22,7 +22,7 @@ pipeline {
 			
              sh "whoami" 
 		//Running & deploy on Payara
-            	sh "/payara/payara5.2020.5/bin/asadmin start-domain"
+//            	sh "/payara/payara5.2020.5/bin/asadmin start-domain"
 		sh "/payara/payara5.2020.5/bin/asadmin deploy --force /var/lib/jenkins/workspace/ISDP/WM/target/WM.war"		
 
 }

@@ -1,8 +1,8 @@
 pipeline {
     agent any
-	
+
     tools {
-	maven "3.6.3"
+    maven "3.6.3"
 }
     stages {
         stage('Build') {
@@ -15,24 +15,26 @@ pipeline {
 
 
                 sh "mv -v /var/lib/jenkins/workspace/ISDP/WM/target/WM-1.1.war /var/lib/jenkins/workspace/ISDP/WM/target/WM.war" 
-                
 
-		//Running JDB
-        //sh "/home/student/JavaTools/db-derby-10.14.2.0-bin/bin/startNetworkServer &"
-		sh "/home/student/JavaTools/db-derby-10.14.2.0-bin/bin/ij connect 'jdbc:derby://localhost:1527/WM;create=true;user=WM;password=WM';"
-			
+
+        //Running JDB
+        sh "java -Dderby.system.home=/home/student/JavaTools/.derbydb -jar /home/student/JavaTools/db-derby-10.14.2.0-bin/lib/derbyrun.jar server start&"
+        sh 'sleep 4'
+        sh "/home/student/JavaTools/db-derby-10.14.2.0-bin/bin/ij connect 'jdbc:derby://localhost:1527/WM;create=true;user=WM;password=WM';"
+        sh "/home/student/JavaTools/db-derby-10.14.2.0-bin/bin/ij run '/var/lib/jenkins/workspace/ISDP/WM/src/main/resources/createDB.sql';" 
+        sh "/home/student/JavaTools/db-derby-10.14.2.0-bin/bin/ij run '/var/lib/jenkins/workspace/ISDP/WM/src/main/resources/initDB.sql';" 
+
              sh "whoami" 
-		//Running & deploy on Payara 54
-        	sh "/payara/payara5.2020.5/bin/asadmin start-domain"
-		    sh "/payara/payara5.2020.5/bin/asadmin -u admin deploy --force /var/lib/jenkins/workspace/ISDP/WM/target/WM.war"		
-            sh 'sleep 4'
+        //Running & deploy on Payara 54
+            sh "/payara/payara5.2020.5/bin/asadmin start-domain"
+            sh "/payara/payara5.2020.5/bin/asadmin -u admin deploy --force /var/lib/jenkins/workspace/ISDP/WM/target/WM.war"
+            
             sh '/payara/payara5.2020.5/bin/asadmin stop-domain'
 
-            //sh "/home/student/JavaTools/db-derby-10.14.2.0-bin/bin/stopNetworkServer"
+            //sh "/home/student/JavaTools/db-derby-10.14.2.0-bin/bn/stopNetworkServer"
 }
 
-            
+
             }
         }
-    
 }

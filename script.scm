@@ -18,6 +18,7 @@ pipeline {
                 
 
 		//Running JDB
+        sh "/home/student/JavaTools/db-derby-10.14.2.0-bin/bin/startNetworkServer"
 		sh "/home/student/JavaTools/db-derby-10.14.2.0-bin/bin/ij connect 'jdbc:derby://localhost:1527/WM;create=true;user=WM;password=WM';"
 			
              sh "whoami" 
@@ -26,6 +27,8 @@ pipeline {
 		    sh "/payara/payara5.2020.5/bin/asadmin -u admin deploy --force /var/lib/jenkins/workspace/ISDP/WM/target/WM.war"		
             sh 'sleep 4'
             sh '/payara/payara5.2020.5/bin/asadmin stop-domain'
+
+            sh "/home/student/JavaTools/db-derby-10.14.2.0-bin/bin/stopNetworkServer"
 }
 
             

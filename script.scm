@@ -21,7 +21,7 @@ pipeline {
 		sh "/home/student/JavaTools/db-derby-10.14.2.0-bin/bin/ij connect 'jdbc:derby://localhost:1527/WM;create=true;user=WM;password=WM';"
 			
              sh "whoami" 
-		//Running & deploy on Payara
+		//Running & deploy on Payara 5
         	sh "/payara/payara5.2020.5/bin/asadmin start-domain"
 		    sh "/payara/payara5.2020.5/bin/asadmin -u admin deploy --force /var/lib/jenkins/workspace/ISDP/WM/target/WM.war"		
             sh 'sleep 4'

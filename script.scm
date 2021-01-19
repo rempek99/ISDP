@@ -29,7 +29,7 @@ pipeline {
                 sh "mvn -DSuiteXmlFile=testXML.xml -f Tests/pom.xml test"
                 sh '/payara/payara5.2020.5/bin/asadmin stop-domain'
 
-                    //sh "/home/student/JavaTools/db-derby-10.14.2.0-bin/bn/stopNetworkServer"
+                    //sh "/home/student/JavaTools/db-derby-10.14.2.0-bin/bin/stopNetworkServer"
                 step([$class: 'Publisher', reportFilenamePattern: '**/custom/testng-results.xml'])
                 }
 

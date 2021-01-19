@@ -39,7 +39,7 @@ pipeline {
         //}
         stage('Undeploy') {
             steps {
-                sh 'sleep 20'
+                sh 'sleep 100'
                 sh '/payara/payara5.2020.5/bin/asadmin stop-domain'
                     //sh "/home/student/JavaTools/db-derby-10.14.2.0-bin/bin/stopNetworkServer"
             }

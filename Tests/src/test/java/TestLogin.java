@@ -22,7 +22,7 @@ public class TestLogin {
 
     @Before
     public void setUp(){
-        System.setProperty("webdriver.gecko.driver", "geckodriver");
+        System.setProperty("webdriver.gecko.driver", "/home/student/geckodriver");
         FirefoxBinary firefoxBinary = new FirefoxBinary();
         FirefoxOptions options = new FirefoxOptions();
         options.setBinary(firefoxBinary);

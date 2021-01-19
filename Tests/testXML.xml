@@ -4,7 +4,8 @@
     <test  name = "Selenium Test" >
         <classes>
             <class name = "TestLogin.java" />
-	    <class name = "StockUpTest.java" />  
+	        <class name = "StockUpTest.java" />
+            <class name="NewAccountTest.java"/>
 	</classes>
     </test>
 </suite>

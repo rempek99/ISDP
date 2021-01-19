@@ -31,7 +31,7 @@ pipeline {
 
                     //sh "/home/student/JavaTools/db-derby-10.14.2.0-bin/bn/stopNetworkServer"
                 }
-
+            step([$class: 'Publisher', reportFilenamePattern: '**/custom/testng-results.xml'])
 
             }
         }

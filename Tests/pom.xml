@@ -42,7 +42,7 @@
                 </dependencies>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>testng.xml</suiteXmlFile>
+                        <suiteXmlFile>testQueue.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>

@@ -1,19 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
-<suite thread-count="3" name=" Parallel Testing Suite" parallel="methods">
-    <test name="Parallel Tests" parallel="methods">
+<suite thread-count = "4" name = "Selenium Tests" >
+    <test  name = "Selenium Test" >
         <classes>
-            <class name="TestLogin"/>
-        </classes>
-    </test>
-    <test name="Parallel Tests" parallel="methods">
-        <classes>
-            <class name="StockUpTest"/>
-        </classes>
-    </test>
-    <test name="Parallel Tests" parallel="methods">
-        <classes>
-            <class name="NewAccountTest"/>
-        </classes>
+            <class name = "TestLogin.java" />
+	    <class name = "StockUpTest.java" />  
+	</classes>
     </test>
 </suite>

@@ -50,6 +50,7 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>${SuiteXmlFile}</suiteXmlFile>
                     </suiteXmlFiles>
+                    <parallel>all</parallel>
                 </configuration>
             </plugin>
         </plugins>

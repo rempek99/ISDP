@@ -22,7 +22,7 @@ pipeline {
                 sh "sudo /home/student/JavaTools/db-derby-10.14.2.0-bin/bin/ij connect 'jdbc:derby://localhost:1527/WM;create=true;user=WM;password=WM';"
                 sh "sudo /home/student/JavaTools/db-derby-10.14.2.0-bin/bin/ij run '/var/lib/jenkins/workspace/ISDP/WM/src/main/resources/createDB.sql';" 
                 sh "sudo /home/student/JavaTools/db-derby-10.14.2.0-bin/bin/ij run '/var/lib/jenkins/workspace/ISDP/WM/src/main/resources/initDB.sql';" 
-                 sh "sudo /home/student/JavaTools/db-derby-10.14.2.0-bin/bin/ij select count * from ACCOUNTS; > file.txt"
+                 sh "sudo /home/student/JavaTools/db-derby-10.14.2.0-bin/bin/ij select * from ACCOUNTS; > file.txt"
 
                 sh "/payara/payara5.2020.5/bin/asadmin start-domain"
                 sh "/payara/payara5.2020.5/bin/asadmin -u admin deploy --force /var/lib/jenkins/workspace/ISDP/WM/target/WM.war"

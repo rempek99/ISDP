@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.After;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.WebElement;
 
@@ -17,8 +18,8 @@ public class StockUpTest {
     
   @Before
   public void setUp() {
-    System.setProperty("webdriver.gecko.driver", "geckodriver");
-    wd = new FirefoxDriver();
+    System.setProperty("webdriver.chrome.driver", "/var/lib/jenkins/tools/chromedriver/chromedriver");
+    wd = new ChromeDriver();
     host = "https://localhost:8181";
     signIn = host + "/faces/common/signIn.xhtml";
     logout = host + "/faces/common/logout.xhtml";

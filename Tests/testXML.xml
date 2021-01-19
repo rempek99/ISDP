@@ -11,9 +11,5 @@
             <class name = "StockUpTest.java" />     
 	</classes>
     </test>
-    <test name = "Parallel Tests" parallel = "methods">
-        <classes>   
-            <class name = "NewAccountTest.java"/>
-	</classes>
-    </test>	
+
 </suite>

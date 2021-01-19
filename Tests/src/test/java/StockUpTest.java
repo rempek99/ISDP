@@ -17,7 +17,7 @@ public class StockUpTest {
     
   @Before
   public void setUp() {
-    System.setProperty("webdriver.gecko.driver", "geckodriver");
+    System.setProperty("webdriver.gecko.driver", "/home/student/geckodriver");
     wd = new FirefoxDriver();
     host = "https://localhost:8181";
     signIn = host + "/faces/common/signIn.xhtml";

@@ -40,7 +40,7 @@
 //  public void test1() {
 //    // Test name: Test1
 //    // Step # | name | target | value
-//    // 1 | open | /faces/main/index.xhtml |
+//    // 1 | open | /faces/main/index.xhtml | 
 //    driver.get("https://localhost:8181/faces/main/index.xhtml");
 //    // 2 | setWindowSize | 1280x557 |
 //    driver.manage().window().setSize(new Dimension(1280, 557));

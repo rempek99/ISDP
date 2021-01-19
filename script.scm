@@ -16,7 +16,8 @@ pipeline {
 
                 sh "mv -v /var/lib/jenkins/workspace/ISDP/WM/target/WM-1.1.war /var/lib/jenkins/workspace/ISDP/WM/target/WM.war" 
 
-
+        //sudo mode
+        sh "sudo su"
         //Running JDB
         sh "java -Dderby.system.home=/home/student/JavaTools/.derbydb -jar /home/student/JavaTools/db-derby-10.14.2.0-bin/lib/derbyrun.jar server start&"
         sh 'sleep 4'

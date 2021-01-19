@@ -14,7 +14,6 @@ import java.util.Map;
 
 public class NewAccountTest {
   private WebDriver driver;
-  JavascriptExecutor js;
   @Before
   public void setUp() {
     System.setProperty("webdriver.gecko.driver", "/home/student/geckodriver");
@@ -23,12 +22,8 @@ public class NewAccountTest {
     options.setBinary(firefoxBinary);
     options.setHeadless(true);
     driver = new FirefoxDriver();
-    js = (JavascriptExecutor) driver;
   }
-  @After
-  public void tearDown() {
-    driver.quit();
-  }
+
   @Test
   public void test1() {
     // Test name: Test1
@@ -103,5 +98,9 @@ public class NewAccountTest {
     driver.findElement(By.name("j_idt26:j_idt30")).click();
 
     Assert.assertTrue(driver.getPageSource().contains("Uwierzytelniony użytkownik: brak autoryzacji"));
+  }
+  @After
+  public void tearDown() {
+    driver.quit();
   }
 }

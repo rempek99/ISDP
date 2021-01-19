@@ -40,11 +40,11 @@
                         <version>2.12.4</version>
                     </dependency>
                 </dependencies>
-                <configuration>
-                    <suiteXmlFiles>
-                        <suiteXmlFile>testQueue.xml</suiteXmlFile>
-                    </suiteXmlFiles>
-                </configuration>
+                  <configuration>
+            <suiteXmlFiles>
+                <suiteXmlFile>${SuiteXmlFile}</suiteXmlFile>
+            </suiteXmlFiles>
+        </configuration>
             </plugin>
         </plugins>
        </build>

@@ -19,7 +19,7 @@ public class TestLogin {
 
     @Before
     public void setUp(){
-        System.setProperty("webdriver.gecko.driver", "geckodriver");
+        System.setProperty("webdriver.gecko.driver", "../geckodriver");
         wd = new FirefoxDriver();
 //        wd = new ChromeDriver();
         url = "https://localhost:8181/faces/common/signIn.xhtml";

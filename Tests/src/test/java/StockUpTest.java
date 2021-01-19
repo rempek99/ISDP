@@ -18,8 +18,10 @@ public class StockUpTest {
     
   @Before
   public void setUp() {
+
     System.setProperty("webdriver.chrome.driver", "/var/lib/jenkins/tools/chromedriver/chromedriver");
     wd = new ChromeDriver();
+
     host = "https://localhost:8181";
     signIn = host + "/faces/common/signIn.xhtml";
     logout = host + "/faces/common/logout.xhtml";

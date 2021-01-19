@@ -21,7 +21,7 @@ pipeline {
                 //Running JDB
                 sh "java -Dderby.system.home=/home/student/JavaTools/.derbydb -jar /home/student/JavaTools/db-derby-10.14.2.0-bin/lib/derbyrun.jar server start&"
                 sh 'sleep 3'
-                sh "sudo /home/student/JavaTools/db-derby-10.14.2.0-bin/bin/ij connect 'jdbc:derby://localhost:1527/WM;create=true;user=WM;password=WM';"
+                sh "sudo /home/student/JavaTools/db-derby-10.14.2.0-bin/bin/ij connect 'jdbc:derby://localhost:1527/WM;create=true;databaseName=WM;user=WM;password=WM';"
                 sh "sudo /home/student/JavaTools/db-derby-10.14.2.0-bin/bin/ij run '/var/lib/jenkins/workspace/ISDP/WM/src/main/resources/createDB.sql';" 
                 sh "sudo /home/student/JavaTools/db-derby-10.14.2.0-bin/bin/ij run '/var/lib/jenkins/workspace/ISDP/WM/src/main/resources/initDB.sql';" 
                 sh "sudo /home/student/JavaTools/db-derby-10.14.2.0-bin/bin/ij run 'script.sql'; > myoutput.txt"
@@ -30,16 +30,15 @@ pipeline {
                 sh "/payara/payara5.2020.5/bin/asadmin -u admin deploy --force /var/lib/jenkins/workspace/ISDP/WM/target/WM.war"
             }
         }
-        //stage('Execute tests') {
-        //    steps {              
-                    //sh "mvn -Dmaven.test.failure.ignore=true -f Tests/pom.xml test"
-        //        sh "mvn -DSuiteXmlFile=testXML.xml -f Tests/pom.xml test"
-                    //step([$class: 'Publisher', reportFilenamePattern: '**/target/surefire-reports/testng-results.xml'])
-        //    }
-        //}
+        stage('Execute tests') {
+            steps {              
+                 //   sh "mvn -Dmaven.test.failure.ignore=true -f Tests/pom.xml test"
+                sh "mvn -DSuiteXmlFile=testXML.xml -f Tests/pom.xml test"
+                   // step([$class: 'Publisher', reportFilenamePattern: '**/target/surefire-reports/testng-results.xml'])
+            }
+        }
         stage('Undeploy') {
             steps {
-                sh 'sleep 100'
                 sh '/payara/payara5.2020.5/bin/asadmin stop-domain'
                     //sh "/home/student/JavaTools/db-derby-10.14.2.0-bin/bin/stopNetworkServer"
             }

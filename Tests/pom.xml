@@ -27,7 +27,7 @@
         </dependency>
     </dependencies>
          
-       <build>
+    <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -40,13 +40,13 @@
                         <version>2.12.4</version>
                     </dependency>
                 </dependencies>
-                  <configuration>
-            <suiteXmlFiles>
-                <suiteXmlFile>${SuiteXmlFile}</suiteXmlFile>
-            </suiteXmlFiles>
-        </configuration>
+                <configuration>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>${SuiteXmlFile}</suiteXmlFile>
+                    </suiteXmlFiles>
+                </configuration>
             </plugin>
         </plugins>
-       </build>
+    </build>
 
 </project>

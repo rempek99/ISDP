@@ -28,7 +28,9 @@ pipeline {
         //Running & deploy on Payara
             sh "/payara/payara5.2020.5/bin/asadmin start-domain"
             sh "/payara/payara5.2020.5/bin/asadmin -u admin deploy --force /var/lib/jenkins/workspace/ISDP/WM/target/WM.war"
-            sh "mvn -f Tests/pom.xml clean test"
+            sh "mvn -f Tests/pom.xml clean compile"
+            sh"sudo chmod -x /var/lib/jenkins/workspace/ISDP/Tests/gekodriver"
+            sh "mvn -f Tests/pom.xml  test"
             sh '/payara/payara5.2020.5/bin/asadmin stop-domain'
 
             //sh "/home/student/JavaTools/db-derby-10.14.2.0-bin/bn/stopNetworkServer"

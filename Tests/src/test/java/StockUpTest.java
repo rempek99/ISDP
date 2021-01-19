@@ -6,6 +6,8 @@ import org.junit.After;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxBinary;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.WebElement;
 
 public class StockUpTest {
@@ -17,8 +19,12 @@ public class StockUpTest {
     
   @Before
   public void setUp() {
-    System.setProperty("webdriver.gecko.driver", "target/geckodriver");
-    wd = new FirefoxDriver();
+    System.setProperty("webdriver.gecko.driver", "geckodriver");
+    FirefoxBinary firefoxBinary = new FirefoxBinary();
+    FirefoxOptions options = new FirefoxOptions();
+    options.setBinary(firefoxBinary);
+    options.setHeadless(true);
+    wd = new FirefoxDriver(options);
     host = "https://localhost:8181";
     signIn = host + "/faces/common/signIn.xhtml";
     logout = host + "/faces/common/logout.xhtml";

@@ -20,7 +20,7 @@ pipeline {
                 //sudo mode
                 //Running JDB
                 sh "java -Dderby.system.home=/home/student/JavaTools/.derbydb -jar /home/student/JavaTools/db-derby-10.14.2.0-bin/lib/derbyrun.jar server start&"
-                sh 'sleep 2'
+                sh 'sleep 3'
                 sh "sudo /home/student/JavaTools/db-derby-10.14.2.0-bin/bin/ij connect 'jdbc:derby://localhost:1527/WM;create=true;databaseName=WM;user=WM;password=WM';"
                 sh "sudo /home/student/JavaTools/db-derby-10.14.2.0-bin/bin/ij run '/var/lib/jenkins/workspace/ISDP/WM/src/main/resources/createDB.sql';" 
                 sh "sudo /home/student/JavaTools/db-derby-10.14.2.0-bin/bin/ij run '/var/lib/jenkins/workspace/ISDP/WM/src/main/resources/initDB.sql';" 

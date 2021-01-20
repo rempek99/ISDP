@@ -47,10 +47,14 @@
                     </dependency>
                 </dependencies>
                 <configuration>
+                    <forkCount>1</forkCount>
+                    <reuseForks>true</reuseForks>
+                    <parallel>classes</parallel>
+                    <threadCount>4</threadCount>
+                    <threadCountClasses>4</threadCountClasses>
                     <suiteXmlFiles>
                         <suiteXmlFile>${SuiteXmlFile}</suiteXmlFile>
                     </suiteXmlFiles>
-                    <parallel>all</parallel>
                 </configuration>
             </plugin>
         </plugins>

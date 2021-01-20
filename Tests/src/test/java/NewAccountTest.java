@@ -8,12 +8,12 @@ import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.Assert;
+import org.testng.annotations.TestInstance;
 
 import java.util.HashMap;
 import java.util.Map;
-
 public class NewAccountTest {
-  private WebDriver driver;
+  private WebDriver driver = new FirefoxDriver();
   @Before
   public void setUp() {
     System.setProperty("webdriver.gecko.driver", "/home/student/geckodriver");
@@ -21,7 +21,7 @@ public class NewAccountTest {
     FirefoxOptions options = new FirefoxOptions();
     options.setBinary(firefoxBinary);
     options.setHeadless(true);
-    driver = new FirefoxDriver();
+    //driver = new FirefoxDriver();
   }
 
   @Test
@@ -30,8 +30,6 @@ public class NewAccountTest {
     // Step # | name | target | value
     // 1 | open | /faces/main/index.xhtml |
     driver.get("https://localhost:8181/faces/main/index.xhtml");
-    // 2 | setWindowSize | 1280x557 |
-    driver.manage().window().setSize(new Dimension(1280, 557));
     // 3 | click | linkText=Logowanie |
 
     // Logowanie jako Admin

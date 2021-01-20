@@ -53,15 +53,15 @@ public class NewAccountTest {
     // 13 | type | id=RegisterForm:name | Test
     driver.findElement(By.id("RegisterForm:name")).sendKeys("Test");
     // 14 | type | id=RegisterForm:surname | Testowy
-    driver.findElement(By.id("RegisterForm:surname")).sendKeys("Testowy");
+    driver.findElement(By.id("RegisterForm:surname")).sendKeys("Testowe");
     // 15 | type | id=RegisterForm:email | test@test.com
-    driver.findElement(By.id("RegisterForm:email")).sendKeys("test@test.com");
+    driver.findElement(By.id("RegisterForm:email")).sendKeys("test1@test.com");
     // 16 | type | id=RegisterForm:login | TTestowy
-    driver.findElement(By.id("RegisterForm:login")).sendKeys("TTestowy");
+    driver.findElement(By.id("RegisterForm:login")).sendKeys("TTestowe");
     // 17 | type | id=RegisterForm:password | Test1234!
-    driver.findElement(By.id("RegisterForm:password")).sendKeys("Test1234!");
+    driver.findElement(By.id("RegisterForm:password")).sendKeys("Test1234@");
     // 18 | type | id=RegisterForm:passwordRepeat | Test1234!
-    driver.findElement(By.id("RegisterForm:passwordRepeat")).sendKeys("Test1234!");
+    driver.findElement(By.id("RegisterForm:passwordRepeat")).sendKeys("Test1234@");
     // 19 | type | id=RegisterForm:question | Are you tester?
     driver.findElement(By.id("RegisterForm:question")).sendKeys("Are you tester?");
     // 20 | type | id=RegisterForm:answer | yes
@@ -73,19 +73,27 @@ public class NewAccountTest {
     // 23 | click | linkText=Lista nowych kont |
     driver.findElement(By.linkText("Lista nowych kont")).click();
     // 24 | click | name=j_idt26:j_idt27:5:j_idt37 |
-    Assert.assertTrue(driver.getPageSource().contains("TTestowy"));
+    Assert.assertTrue(driver.getPageSource().contains("TTestowe"));
 
-    driver.findElement(By.name("j_idt26:j_idt27:5:j_idt37")).click();
-    // 26 | click | css=tr:nth-child(6) option:nth-child(2) |
-    driver.findElement(By.cssSelector("tr:nth-child(6) option:nth-child(2)")).click();
-    // 27 | click | name=j_idt26:j_idt27:5:j_idt40 |
-    driver.findElement(By.name("j_idt26:j_idt27:5:j_idt40")).click();
-    // 28 | click | linkText=Konto użytkownika |
+//    driver.findElement(By.name("j_idt26:j_idt27:5:j_idt37")).click();
+//    // 26 | click | css=tr:nth-child(6) option:nth-child(2) |
+//    driver.findElement(By.cssSelector("tr:nth-child(6) option:nth-child(2)")).click();
+//    // 27 | click | name=j_idt26:j_idt27:5:j_idt40 |
+
+// Usuwanie Testowego Konta
+    var table = driver.findElement(By.className("table"));
+    var rows = table.findElements(By.tagName("tr"));
+    driver.findElement(By.xpath("/html/body/div/div[3]/div/form/table/tbody/tr[" + String.valueOf(rows.size()-1) +"]/td[5]/input[2]")).click();
+    System.out.println(rows.size());
+    driver.findElement(By.xpath("/html/body/div/div[3]/div/form/input[2]")).click();
+
+    Assert.assertFalse(driver.getPageSource().contains("TTestowe"));
+//    // 28 | click | linkText=Konto użytkownika |
     driver.findElement(By.linkText("Konto użytkownika")).click();
     // 29 | click | linkText=Lista kont użytkowników |
     driver.findElement(By.linkText("Lista kont użytkowników")).click();
     //Assert that User is created
-    Assert.assertTrue(driver.getPageSource().contains("TTestowy"));
+    Assert.assertFalse(driver.getPageSource().contains("TTestowe"));
     // 30 | click | linkText=Wylogowanie |
     driver.findElement(By.linkText("Wylogowanie")).click();
     // 31 | click | name=j_idt26:j_idt30 |

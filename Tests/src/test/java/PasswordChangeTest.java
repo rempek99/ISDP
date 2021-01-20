@@ -101,10 +101,7 @@ public class PasswordChangeTest {
         //logging out
         driver.findElement(By.xpath("//*[@id=\"myNavbar\"]/ul[2]/li/a")).click();
         driver.findElement(By.name("j_idt26:j_idt30")).click();
-    }
 
-    @Test
-    public void b_notSingedInPassChangeTest() {
         driver.get(signInPage);
 
         Assert.assertTrue(driver.getPageSource().contains("Uwierzytelniony użytkownik: brak autoryzacji"));

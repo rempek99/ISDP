@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
-<suite thread-count = "4" name="Selenium Tests" >
+<suite  name="Selenium Tests" >
     <test name="Selenium Test 1" >
         <classes>
             <class name="TestLogin.java" />
@@ -14,11 +14,6 @@
     <test name="Selenium Test3" >
         <classes>
             <class name="NewAccountTest.java"/>
-        </classes>
-    </test>
-    <test name="Selenium Test3" >
-        <classes>
-            <class name="PasswordChangeTest.java"/>
         </classes>
     </test>
 </suite>

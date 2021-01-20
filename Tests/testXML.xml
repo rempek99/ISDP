@@ -16,6 +16,11 @@
             <class name="NewAccountTest.java"/>
         </classes>
     </test>
+    <test name="Selenium Test 4" >
+        <classes>
+            <class name="PasswordChangeTest.java"/>
+	    </classes>
+    </test>
 </suite>
             
 

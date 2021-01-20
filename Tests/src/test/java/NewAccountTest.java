@@ -13,7 +13,7 @@ import org.testng.annotations.TestInstance;
 import java.util.HashMap;
 import java.util.Map;
 public class NewAccountTest {
-  private WebDriver driver = new FirefoxDriver();
+  private WebDriver driver;
   @Before
   public void setUp() {
     System.setProperty("webdriver.gecko.driver", "/home/student/geckodriver");
@@ -21,7 +21,7 @@ public class NewAccountTest {
     FirefoxOptions options = new FirefoxOptions();
     options.setBinary(firefoxBinary);
     options.setHeadless(true);
-    //driver = new FirefoxDriver();
+    driver = new FirefoxDriver();
   }
 
   @Test
@@ -99,6 +99,6 @@ public class NewAccountTest {
   }
   @After
   public void tearDown() {
-    driver.quit();
+    // driver.quit();
   }
 }

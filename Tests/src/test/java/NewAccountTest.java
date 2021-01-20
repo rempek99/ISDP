@@ -104,6 +104,6 @@ public class NewAccountTest {
   }
   @After
   public void tearDown() {
-    //driver.quit();
+    driver.quit();
   }
 }

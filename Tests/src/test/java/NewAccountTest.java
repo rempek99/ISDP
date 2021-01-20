@@ -47,7 +47,7 @@ public class NewAccountTest {
     // 11 | click | linkText=Rejestracja konta |
 
     // Rejestracja Nowego użytkownika
-    driver.findElement(By.linkText("Rejestracja konta")).click();
+    driver.get("https://localhost:8181/faces/common/registerAccount.xhtml");
     // 12 | click | id=RegisterForm:name |
     driver.findElement(By.id("RegisterForm:name")).click();
     // 13 | type | id=RegisterForm:name | Test
@@ -74,12 +74,8 @@ public class NewAccountTest {
     driver.findElement(By.linkText("Lista nowych kont")).click();
     // 24 | click | name=j_idt26:j_idt27:5:j_idt37 |
     Assert.assertTrue(driver.getPageSource().contains("TTestowy"));
+
     driver.findElement(By.name("j_idt26:j_idt27:5:j_idt37")).click();
-    // 25 | select | name=j_idt26:j_idt27:5:j_idt37 | label=Biuro
-    {
-      WebElement dropdown = driver.findElement(By.name("j_idt26:j_idt27:5:j_idt37"));
-      dropdown.findElement(By.xpath("//option[. = 'Biuro']")).click();
-    }
     // 26 | click | css=tr:nth-child(6) option:nth-child(2) |
     driver.findElement(By.cssSelector("tr:nth-child(6) option:nth-child(2)")).click();
     // 27 | click | name=j_idt26:j_idt27:5:j_idt40 |
@@ -99,6 +95,6 @@ public class NewAccountTest {
   }
   @After
   public void tearDown() {
-    // driver.quit();
+    driver.quit();
   }
 }

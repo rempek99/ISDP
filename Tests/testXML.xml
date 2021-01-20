@@ -4,22 +4,10 @@
     <test name="Selenium Test 1" >
         <classes>
             <class name="TestLogin.java" />
+		 <class name="StockUpTest.java" />
+		<class name="PasswordChangeTest.java"/>
+		 <class name="NewAccountTest.java"/>
         </classes>
-    </test>
-    <test name="Selenium Test 2" >
-        <classes>
-            <class name="StockUpTest.java" />
-        </classes>
-    </test>
-    <test name="Selenium Test3" >
-        <classes>
-            <class name="NewAccountTest.java"/>
-        </classes>
-    </test>
-    <test name="Selenium Test 4" >
-        <classes>
-            <class name="PasswordChangeTest.java"/>
-	    </classes>
     </test>
 </suite>
             

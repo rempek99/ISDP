@@ -3,7 +3,8 @@
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
@@ -21,7 +22,7 @@ public class NewAccountTest {
     FirefoxOptions options = new FirefoxOptions();
     options.setBinary(firefoxBinary);
     options.setHeadless(true);
-    driver = new FirefoxDriver();
+    driver = new FirefoxDriver(options);
   }
 
   @Test

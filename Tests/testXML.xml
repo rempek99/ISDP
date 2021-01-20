@@ -4,9 +4,9 @@
     <test name="Selenium Test 1" >
         <classes>
             <class name="TestLogin.java" />
-		 <class name="StockUpTest.java" />
+	    <class name="StockUpTest.java" />
             <class name="NewAccountTest.java"/>
-
+	    <class name="PasswordChangeTest.java"/>
         </classes>
     </test>
 </suite>

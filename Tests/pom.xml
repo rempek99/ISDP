@@ -48,7 +48,6 @@
                 </dependencies>
                 <configuration>
                     <parallel>suites</parallel>
-                    <threadCount>4</threadCount>
                     <suiteXmlFiles>
                         <suiteXmlFile>${SuiteXmlFile}</suiteXmlFile>
                     </suiteXmlFiles>

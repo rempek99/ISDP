@@ -16,7 +16,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.Keys;
 
-@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class PasswordChangeTest {
     private WebDriver driver;
     private WebDriverWait wait;
@@ -42,8 +41,14 @@ public class PasswordChangeTest {
 
     }
     
+    //to preserve sequential order
     @Test
-    public void a_signedInPassChangeTest() {
+    public void passTest() {
+        signedInPassChangeTest();
+        notSingedInPassChangeTest();
+    }
+    
+    public void signedInPassChangeTest() {
 
         driver.get(signInPage);
 
@@ -101,7 +106,9 @@ public class PasswordChangeTest {
         //logging out
         driver.findElement(By.xpath("//*[@id=\"myNavbar\"]/ul[2]/li/a")).click();
         driver.findElement(By.name("j_idt26:j_idt30")).click();
-
+    }
+    
+    public void notSingedInPassChangeTest() {
         driver.get(signInPage);
 
         Assert.assertTrue(driver.getPageSource().contains("Uwierzytelniony użytkownik: brak autoryzacji"));
